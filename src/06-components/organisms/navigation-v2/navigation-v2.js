@@ -1,7 +1,7 @@
 export default () => {
     document.addEventListener('keydown', e => {
         const keyCode = e.which;
-        const header = e.target.closest('header[role=navigation]');
+        const header = e.target.closest('header[role=navigation].sc-navigation-v2');
         if (!header) {
             return;
         }
@@ -12,7 +12,7 @@ export default () => {
     });
 
     document.addEventListener('click', e => {
-        const header = e.target.closest('header[role=navigation]');
+        const header = e.target.closest('header[role=navigation].sc-navigation-v2');
 
         // 1. click outside header closes all the menus
         // 2. click hamburger button opens the main menu
@@ -23,7 +23,7 @@ export default () => {
 
         // 1
         if(!header) {
-            closeAllOpenedSubmenus();
+            //closeAllOpenedSubmenus();
             return;
         }
 
