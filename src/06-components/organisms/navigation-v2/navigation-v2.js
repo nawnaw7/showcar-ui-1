@@ -1,7 +1,11 @@
 export default () => {
     document.addEventListener('keydown', e => {
+        if(!isHeaderV2()) {
+            return;
+        }
+
         const keyCode = e.which;
-        const header = e.target.closest('header[role=navigation].sc-navigation-v2');
+        const header = e.target.closest('header[role=navigation]');
         if (!header) {
             return;
         }
@@ -12,7 +16,11 @@ export default () => {
     });
 
     document.addEventListener('click', e => {
-        const header = e.target.closest('header[role=navigation].sc-navigation-v2');
+        if(!isHeaderV2()) {
+            return;
+        }
+
+        const header = e.target.closest('header[role=navigation]');
 
         // 1. click outside header closes all the menus
         // 2. click hamburger button opens the main menu
@@ -23,7 +31,7 @@ export default () => {
 
         // 1
         if(!header) {
-            //closeAllOpenedSubmenus();
+            closeAllOpenedSubmenus();
             return;
         }
 
@@ -57,6 +65,10 @@ export default () => {
         }
 
     });
+
+    const isHeaderV2 = () => {
+        return document.querySelector('header[role=navigation].sc-navigation-v2') !== null;
+    };
 
     const toggleSubmenu = (opener, button) => {
         const isDesktop = window.innerWidth >= 923; // see breakpoint
