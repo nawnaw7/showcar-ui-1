@@ -67,7 +67,7 @@ export default () => {
     });
 
     const isHeaderV2 = () => {
-        return document.querySelector('header[role=navigation].sc-navigation-v2') !== null;
+        return document.querySelector('header[role=navigation].as24dn__nav,header[role=navigation].sc-navigation-v2') !== null;
     };
 
     const toggleSubmenu = (opener, button) => {
