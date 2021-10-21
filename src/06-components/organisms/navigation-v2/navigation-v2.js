@@ -1,5 +1,9 @@
 export default () => {
     document.addEventListener('keydown', e => {
+        if(!isHeaderV2()) {
+            return;
+        }
+
         const keyCode = e.which;
         const header = e.target.closest('header[role=navigation]');
         if (!header) {
@@ -12,6 +16,10 @@ export default () => {
     });
 
     document.addEventListener('click', e => {
+        if(!isHeaderV2()) {
+            return;
+        }
+
         const header = e.target.closest('header[role=navigation]');
 
         // 1. click outside header closes all the menus
@@ -57,6 +65,10 @@ export default () => {
         }
 
     });
+
+    const isHeaderV2 = () => {
+        return document.querySelector('header[role=navigation].sc-navigation-v2') !== null;
+    };
 
     const toggleSubmenu = (opener, button) => {
         const isDesktop = window.innerWidth >= 923; // see breakpoint
