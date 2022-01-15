@@ -63,7 +63,7 @@
     "karma-sinon": "^1.0.5",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^4.0.2",
-    "marked": "^0.7.0",
+    "marked": "^4.0.10",
     "mocha": "^8.0.1",
     "postcss-import": "^12.0.1",
     "quixote": "git+https://github.com/anders0l/quixote.git#tolerance",
