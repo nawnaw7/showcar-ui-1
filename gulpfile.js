@@ -72,13 +72,6 @@ gulp.task('replace', done => {
     const replaceOptions = { logs: { enabled: false } };
     gulp.src(['src/html/index.html', 'src/html/index-standalone.html', 'docs/helpers/polyfills.js'])
         .pipe(stringReplace('@@POLYFILL_DOCUMENT_REGISTER_ELEMENT', readFile('node_modules/document-register-element/build/document-register-element.js'), replaceOptions))
-        .pipe(stringReplace('@@POLYFILL_DOM4', readFile('node_modules/dom4/build/dom4.js'), replaceOptions))
-        .pipe(stringReplace('@@POLYFILL_ARRAY', readJsFile('src/js/polyfills/array.js'), replaceOptions))
-        .pipe(stringReplace('@@POLYFILL_STRING', readJsFile('src/js/polyfills/string.js'), replaceOptions))
-        .pipe(stringReplace('@@POLYFILL_OBJECT', readJsFile('src/js/polyfills/object.js'), replaceOptions))
-        .pipe(stringReplace('@@POLYFILL_PROMISE', readJsFile('node_modules/promiz/promiz.min.js'), replaceOptions))
-        .pipe(stringReplace('@@POLYFILL_FETCH', readJsFile('node_modules/whatwg-fetch/fetch.js'), replaceOptions))
-        .pipe(stringReplace('@@POLYFILL_URL_SEARCH_PARAMS', readJsFile('node_modules/url-search-params-polyfill/index.js'), replaceOptions))
         .pipe(stringReplace('@@SCRIPT_ERROR_COLLECTOR', readJsFile('src/js/inline-js/js-error-collector.js'), replaceOptions))
         .pipe(gulp.dest('dist/'));
     done();
